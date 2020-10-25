@@ -10,8 +10,8 @@
     <FrameLayout
         android:id="@+id/page_control"
         android:layout_width="match_parent"
-        android:layout_height="245dp"
-        android:layout_weight="0.5">
+        android:layout_height="84dp"
+        android:layout_weight="1">
 
     </FrameLayout>
 
@@ -19,7 +19,7 @@
         android:id="@+id/page_viewer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="0.5">
+        android:layout_weight="1">
 
     </FrameLayout>
 </LinearLayout>
