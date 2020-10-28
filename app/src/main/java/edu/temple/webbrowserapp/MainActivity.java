@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void backButtonClick() {
         //
+        pageViewerFragment.backButtonPressed();
     }
 
     @Override
@@ -58,5 +59,8 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void pageChanged() {
         //
+
     }
+
+
 }

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,8 +61,12 @@ public class PageViewerFragment extends Fragment {
         context = l.getContext();
         webView = l.findViewById(R.id.myWebView);
         webView.loadUrl("https://www.google.com");
-        webclient = new WebViewClient();
-        webView.setWebViewClient(webclient);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
 
 
         return l;
@@ -101,7 +106,22 @@ public class PageViewerFragment extends Fragment {
         }
     }
 
+    public void backButtonPressed()
+    {
+        if(webView.canGoBack())
+        {
+            webView.goBack();
+        }
 
+    }
+    public void forwardButtonPressed()
+    {
+        if(webView.canGoForward())
+        {
+            webView.goForward();
+        }
+
+    }
 
     interface pageViewerInterface
     {
