@@ -6,7 +6,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PageControlFragment.pageViewerInterface,
+        PageViewerFragment.pageViewerInterface{
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -35,5 +36,27 @@ public class MainActivity extends AppCompatActivity {
 
 
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void forwardButtonClick() {
+        //
+    }
+
+    @Override
+    public void backButtonClick() {
+        //
+    }
+
+    @Override
+    public void searchButtonClick() {
+        //
+        String urlString =  pageControlFragment.getURLString();
+        pageViewerFragment.loadPage(urlString);
+    }
+
+    @Override
+    public void pageChanged() {
+        //
     }
 }
