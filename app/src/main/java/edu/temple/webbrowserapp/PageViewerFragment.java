@@ -60,10 +60,12 @@ public class PageViewerFragment extends Fragment {
 
         context = l.getContext();
         webView = l.findViewById(R.id.myWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://www.google.com");
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                parentActivity.pageChanged();
                 return super.shouldOverrideUrlLoading(view, request);
             }
         });
@@ -111,16 +113,19 @@ public class PageViewerFragment extends Fragment {
         if(webView.canGoBack())
         {
             webView.goBack();
-        }
 
+        }
+       parentActivity.pageChanged();
     }
+
     public void forwardButtonPressed()
     {
         if(webView.canGoForward())
         {
             webView.goForward();
-        }
 
+        }
+       parentActivity.pageChanged();
     }
 
     interface pageViewerInterface

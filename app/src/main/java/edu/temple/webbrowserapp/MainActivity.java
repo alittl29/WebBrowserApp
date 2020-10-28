@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void forwardButtonClick() {
         //
+        pageViewerFragment.forwardButtonPressed();
     }
 
     @Override
@@ -59,7 +60,8 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void pageChanged() {
         //
-
+        String urlString =  pageViewerFragment.getURL();
+        pageControlFragment.setText(urlString);
     }
 
 
