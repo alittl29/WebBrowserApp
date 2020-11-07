@@ -8,6 +8,14 @@
     tools:context=".MainActivity">
 
     <FrameLayout
+        android:id="@+id/browser_control"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+
+    <FrameLayout
         android:id="@+id/page_control"
         android:layout_width="match_parent"
         android:layout_height="84dp"
