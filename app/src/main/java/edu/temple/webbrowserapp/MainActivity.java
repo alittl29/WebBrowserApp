@@ -6,13 +6,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements PageControlFragment.pageViewerInterface,
-        PageViewerFragment.pageViewerInterface{
+public class MainActivity extends AppCompatActivity implements PageControlFragment.pageViewerInterface {
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     PageControlFragment pageControlFragment;
-    PageViewerFragment pageViewerFragment;
+    PagerFragment pagerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
         setContentView(R.layout.activity_main);
 
         pageControlFragment = new PageControlFragment();
-        pageViewerFragment = new PageViewerFragment();
+        pagerFragment = new PagerFragment();
 
         FragmentManager fragmentManager =  getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -29,9 +28,9 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
         {
             fragmentTransaction.add(R.id.page_control,pageControlFragment);
         }
-        if(!(getSupportFragmentManager().findFragmentById(R.id.page_viewer) instanceof PageViewerFragment))
+        if(!(getSupportFragmentManager().findFragmentById(R.id.page_viewer) instanceof PagerFragment))
         {
-            fragmentTransaction.add(R.id.page_viewer,pageViewerFragment);
+            fragmentTransaction.add(R.id.page_viewer,pagerFragment);
         }
 
 
@@ -41,28 +40,22 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void forwardButtonClick() {
         //
-        pageViewerFragment.forwardButtonPressed();
+        //pageViewerFragment.forwardButtonPressed();
     }
 
     @Override
     public void backButtonClick() {
         //
-        pageViewerFragment.backButtonPressed();
+       // pageViewerFragment.backButtonPressed();
     }
 
     @Override
     public void searchButtonClick() {
         //
         String urlString =  pageControlFragment.getURLString();
-        pageViewerFragment.loadPage(urlString);
+       // pageViewerFragment.loadPage(urlString);
     }
 
-    @Override
-    public void pageChanged() {
-        //
-        String urlString =  pageViewerFragment.getURL();
-        pageControlFragment.setText(urlString);
-    }
 
 
 }
