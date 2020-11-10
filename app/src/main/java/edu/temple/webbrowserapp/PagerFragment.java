@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-public class PagerFragment extends Fragment {
+public class PagerFragment extends Fragment{
 
     View l;
     Context context;
@@ -55,5 +55,12 @@ public class PagerFragment extends Fragment {
 
        return l;
     }
+
+    public void addPage()
+    {
+        arrayList.add(new PageViewerFragment());
+        viewPager.getAdapter().notifyDataSetChanged();
+    }
+
 
 }

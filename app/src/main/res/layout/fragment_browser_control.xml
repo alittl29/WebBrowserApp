@@ -2,13 +2,13 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".BrowserControlFragment">
 
     <ImageButton
         android:id="@+id/btnNewPage"
-        android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_width="410dp"
+        android:layout_height="111dp"
         android:src="@android:drawable/ic_menu_mapmode" />
 </FrameLayout>
