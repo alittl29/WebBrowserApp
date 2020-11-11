@@ -23,9 +23,33 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pageControlFragment = new PageControlFragment();
-        pagerFragment = new PagerFragment();
-        browserControlFragment = new BrowserControlFragment();
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                pageControlFragment = new PageControlFragment();
+
+            }
+        });
+        thread.run();
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                pagerFragment = new PagerFragment();
+            }
+        });
+        thread2.run();
+
+        Thread thread3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                browserControlFragment = new BrowserControlFragment();
+            }
+        });
+        thread3.run();
 
         FragmentManager fragmentManager =  getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -34,10 +58,15 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
         {
             fragmentTransaction.add(R.id.page_control,pageControlFragment);
         }
+
+
         if(!(getSupportFragmentManager().findFragmentById(R.id.page_viewer) instanceof PagerFragment))
         {
             fragmentTransaction.add(R.id.page_viewer,pagerFragment);
         }
+
+
+
         if(!(getSupportFragmentManager().findFragmentById(R.id.browser_control) instanceof BrowserControlFragment))
         {
             fragmentTransaction.add(R.id.browser_control,browserControlFragment);
@@ -50,20 +79,19 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void forwardButtonClick() {
         //
-        //pageViewerFragment.forwardButtonPressed();
+        pagerFragment.forwardButtonPressed();
     }
 
     @Override
     public void backButtonClick() {
         //
-       // pageViewerFragment.backButtonPressed();
+       pagerFragment.backButtonPressed();
     }
 
     @Override
     public void searchButtonClick() {
         //
-        String urlString =  pageControlFragment.getURLString();
-       // pageViewerFragment.loadPage(urlString);
+        pagerFragment.loadPage();
     }
 
 

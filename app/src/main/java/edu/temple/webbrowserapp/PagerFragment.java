@@ -14,7 +14,13 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class PagerFragment extends Fragment{
@@ -27,6 +33,7 @@ public class PagerFragment extends Fragment{
     public PagerFragment() {
         // Required empty public constructor
     }
+
 
 
 
@@ -53,6 +60,7 @@ public class PagerFragment extends Fragment{
            }
        });
 
+
        return l;
     }
 
@@ -60,7 +68,22 @@ public class PagerFragment extends Fragment{
     {
         arrayList.add(new PageViewerFragment());
         viewPager.getAdapter().notifyDataSetChanged();
+
     }
 
 
+    public void loadPage()
+    {
+        arrayList.get(viewPager.getCurrentItem()).loadPage(arrayList.get(viewPager.getCurrentItem()).getURL());
+    }
+
+    public void backButtonPressed()
+    {
+        arrayList.get(viewPager.getCurrentItem()).backButtonPressed();
+    }
+
+    public void forwardButtonPressed()
+    {
+        arrayList.get(viewPager.getCurrentItem()).forwardButtonPressed();
+    }
 }
