@@ -91,7 +91,8 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
     @Override
     public void searchButtonClick() {
         //
-        pagerFragment.loadPage();
+        String urlString =  pagerFragment.getURL();
+        pagerFragment.loadPage(urlString);
     }
 
 
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements PageControlFragme
 
     @Override
     public void pageChanged() {
-
+        String urlString =  pagerFragment.getURL();
+        pageControlFragment.setText(urlString);
     }
 }

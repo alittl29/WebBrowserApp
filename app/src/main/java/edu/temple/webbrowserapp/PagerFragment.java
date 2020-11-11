@@ -71,10 +71,14 @@ public class PagerFragment extends Fragment{
 
     }
 
-
-    public void loadPage()
+    public String getURL()
     {
-        arrayList.get(viewPager.getCurrentItem()).loadPage(arrayList.get(viewPager.getCurrentItem()).getURL());
+        return arrayList.get(viewPager.getCurrentItem()).getURL();
+    }
+
+    public void loadPage(String URL)
+    {
+        arrayList.get(viewPager.getCurrentItem()).loadPage(URL);
     }
 
     public void backButtonPressed()
